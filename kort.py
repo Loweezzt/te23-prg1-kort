@@ -3,39 +3,30 @@ from random import randint
 spelare_1_namn = ("Choose a name for player 1")
 spelare_2_namn = ("Choose a name for player 2")
 
+play_game =""
+
 player_1_score = 10
 player_2_score = 10
 
-while true:
-    game_round = 0 
+while play_game.upper() == "":
 
-player_1_throw = randint(1, 6)
-player_2_throw = randint(1, 6)
+    player_1_hits = randint(1, 6)
+    player_2_hits = randint(1, 6)
 
-if player_1_throw > player_2_throw:
-    damage = player_2_throw - player_1_throw
+    print(f"<----------------Player one strikes {player_1_hits}!---------------->")
+    print(f"<----------------Player two strikes {player_2_hits}!---------------->")
 
-player_2_score =- damage
-
-    print(f"{spelare_1_namn} rolls {player_1_throw} !")
-    print(f"{spelare_2_namn} rolls {player_2_throw} !")
-
-    print(f"{spelare_1_namn} Does {damage} Damage!")
-    print(f"{spelare_2_namn} Only has {player_2_score} Lifes left!")
-    throw_again = input("Click enter to throw again!")
-
-    elif player_2_throw > player_1_throw :
-        Damage = player_2_throw - player_1_throw
-
-
-    player_1_score -= Damage
-    print("#|||||||||||||||||||||||||||#")
-    print(f"{spelare_1_namn} rolls {player_1_throw}")
-    print(f"{spelare_2_namn} rolls {player_2_throw}")
-    print("#|||||||||||||||||||||||||||#")
-
-    print(f"{}")
-
-
+    if player_1_hits > player_2_hits:
+        print(f"<------Playa one hits harder and deals {player_1_hits - player_2_hits} damage!------>")
+        player_1_score = player_1_hits - player_2_hits
+    elif player_2_hits > player_1_hits:
+        print(f"<------Player two hits harder and deals {player_2_hits - player_1_hits} damage!----->")
+        player_2_score = player_2_hits - player_1_hits
+    else:
+        print(
+            f"<--No one deals damage, they both dodged the attack!-->"
+        )
+    
+    
 
 
