@@ -1,9 +1,9 @@
 print("WElCOME to the slums simulator")
-run = True
+ 
 dishes = ["Lunchly", "Mango", "Galaxy gas", "Straight shit"]
 drinks = ["Prime", "Still Water", "Mangojuice", "Still those who know"]
 while run:
-    choice = input("Whats happenin next?\n[1] List of food\n[2] List of drinks\n[3] You just found\n[4] Fanum Tax\n[5] Sort\n[6] End\n")
+    choice = input("Whats happenin next?\n[1] List of food\n[2] List of drinks\n[3] You just found\n[4] Fanum Tax F\n[5] Fanum Tax D\n[6] Sort\n[7] End\n")
     if choice == "1":
         print("Dishes avalible: ")
         print("#-----------------------")
@@ -22,12 +22,14 @@ while run:
         drinks = input("You found an new drink on the floor: ")
         drinks.append(drink)
     elif choice == "4":
-        n = dishes.pop(0)
-        print("You just fanum taxed")
-        
-    elif choice == "5":
-        dishes.sort()
+        n = dishes.pop(0, )
+        print("A dish just fanum taxed")
+      elif choice == "5":
+        n = drinks.pop(0, )
+        print("A drink just fanum taxed")    
     elif choice == "6":
+        dishes.sort()
+    elif choice == "7":
         run = False
     else:
-        print("Jag fattar inte ditt kommando")
+        print("What tf did u just write")
