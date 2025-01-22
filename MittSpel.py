@@ -3,25 +3,41 @@ def kasta_tarning():
     return random.randint(1, 6)
 
 def spela_runda():
-    print("Spelare 1, välj om resultatet blir över eller under:")
-    val_1 = input("Skriv 'över' eller 'under': ").lower()
+    print("Player one, Choose if the dice results is over or under:")
+    val_1 = input("Write your choice, over or under?: ").lower()
     
+    
+    player_1 = 0
+    player_2 = 0 
     tarning_1 = kasta_tarning()
-    print(f"Spelare 1 kastade {tarning_1}.")
+    print(f"Player one threw the dice {tarning_1}.")
     
-    if (val_1 == 'över' and tarning_1 >= 4) or (val_1 == 'under' and tarning_1 < 3):
-        print("Spelare 1 gissade rätt!\n")
+    if (val_1 == 'over' and tarning_1 >= 4) or (val_1 == 'under' and tarning_1 < 3):
+        print("Player one guessed correctly!\n")
+        player_1 += 1
     else:
-        print("Spelare 1 gissade fel.\n")
+        print("Player one guessed wrong.\n")
      
-    print("Spelare 2, välj om resultatet blir över eller under:")
-    val_2 = input("Skriv 'över' eller 'under': ").lower()
+    print("Player two, Choose if the dice results is over or under:")
+    val_2 = input("Write your choice, over or under?: ").lower()
    
     tarning_2 = kasta_tarning()
-    print(f"Spelare 2 kastade {tarning_2}.")
+    print(f"Player two threw the dice {tarning_2}.")
     
-    if (val_2 == 'över' and tarning_2 >= 4) or (val_2 == 'under' and tarning_2 < 3):
-        print("Spelare 2 gissade rätt!\n")
+    if (val_2 == 'over' and tarning_2 >= 4) or (val_2 == 'under' and tarning_2 < 3):
+        print("Player two guessed right!\n")
+        player_1 += 1
     else:
-        print("Spelare 2 gissade fel.\n")
-spela_runda()
+        print("Player two guessed wrong!.\n")
+
+for runda in range(1, 5):
+
+    if player_1 == 3:
+        print("Player one wins")
+        break
+    elif player_2 == 3:
+        print("p2 wins")
+        break
+
+    spela_runda()
+
