@@ -7,16 +7,15 @@ def spela_runda():
     val_1 = input("Write your choice, over or under?: ").lower()
     
     
-    player_1 = 0
-    player_2 = 0 
     tarning_1 = kasta_tarning()
     print(f"Player one threw the dice {tarning_1}.")
     
     if (val_1 == 'over' and tarning_1 >= 4) or (val_1 == 'under' and tarning_1 < 3):
         print("Player one guessed correctly!\n")
-        player_1 += 1
+        return 1
     else:
         print("Player one guessed wrong.\n")
+        return 2
      
     print("Player two, Choose if the dice results is over or under:")
     val_2 = input("Write your choice, over or under?: ").lower()
@@ -26,18 +25,30 @@ def spela_runda():
     
     if (val_2 == 'over' and tarning_2 >= 4) or (val_2 == 'under' and tarning_2 < 3):
         print("Player two guessed right!\n")
-        player_1 += 1
+        return 2
     else:
         print("Player two guessed wrong!.\n")
+        return 1
 
-for runda in range(1, 5):
+run = True
 
+player_1 = 0
+player_2 = 0 
+
+while run:
+    print("p1", player_1, "player_", player_2)
     if player_1 == 3:
         print("Player one wins")
-        break
+        run= False
     elif player_2 == 3:
-        print("p2 wins")
-        break
+        print("player two wins")
+        run = False
 
-    spela_runda()
+    winner = spela_runda()
+
+    if winner == 1:
+        player_1 += 1
+
+    elif winner ==2:
+        player_2 += 1
 
